@@ -187,6 +187,13 @@
         .subtitle {
             font-size: 1.125rem;
             color: var(--text-light);
+            margin-bottom: 0.75rem;
+        }
+
+        .availability {
+            color: var(--text);
+            font-size: 0.95rem;
+            font-weight: 600;
             margin-bottom: 1.5rem;
         }
 
@@ -395,6 +402,21 @@
             border-top: 4px solid #2563eb;
         }
 
+        .project-preview {
+            min-height: 110px;
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.12), rgba(22, 163, 74, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text);
+            font-weight: 700;
+            text-align: center;
+        }
+
         .project-card:hover {
             border-color: #2563eb;
             transition: border-color 0.2s;
@@ -419,6 +441,8 @@
             align-items: center;
             font-size: 0.75rem;
             color: var(--text-light);
+            gap: 1rem;
+            margin-bottom: 1rem;
         }
 
         .project-tags {
@@ -435,6 +459,41 @@
             border-radius: 999px;
             font-size: 0.75rem;
             font-weight: 600;
+        }
+
+        .project-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: auto;
+        }
+
+        .project-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.55rem 0.85rem;
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            color: var(--text);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .project-action.primary {
+            background: #2563eb;
+            border-color: #2563eb;
+            color: white;
+        }
+
+        .project-action:hover {
+            background: var(--border);
+            text-decoration: none;
+        }
+
+        .project-action.primary:hover {
+            background: #1e40af;
         }
 
         .more-projects {
@@ -525,6 +584,15 @@
             font-size: 0.875rem;
         }
 
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+
         @media (max-width: 768px) {
             h2 {
                 font-size: 1.875rem;
@@ -571,6 +639,14 @@
                 align-items: flex-start;
                 flex-direction: column;
             }
+
+            .project-actions {
+                width: 100%;
+            }
+
+            .project-action {
+                flex: 1;
+            }
         }
     </style>
 </head>
@@ -601,6 +677,7 @@
                 <div class="hero-copy">
                     <h2>Python Developer & Published Researcher</h2>
                     <p class="subtitle">Building useful tools, contributing to open source, and advancing AI/ML applications in infrastructure monitoring. Published in Elsevier's Measurement journal.</p>
+                    <p class="availability">Open to Python, AI/ML, computer vision, and research engineering opportunities.</p>
                     <div class="button-group">
                         <a href="https://github.com/Sarathchandra-Janapati" class="btn btn-primary" target="_blank">
                             <span>📦</span> View on GitHub
@@ -614,6 +691,9 @@
                         <a href="sarath.pdf" class="btn btn-secondary" target="_blank">
                             <span>📄</span> View Resume
                         </a>
+                        <a href="https://www.linkedin.com/in/sarathchandra-j/" class="btn btn-secondary" target="_blank">
+                            <span>✉</span> Contact
+                        </a>
                     </div>
                 </div>
                 <div class="profile-photo-wrap" aria-label="Sarath Chandra profile photo">
@@ -624,11 +704,11 @@
         </section>
 
         <div class="tabs">
-            <button class="tab-btn active" onclick="switchTab('overview')">Overview</button>
-            <button class="tab-btn" onclick="switchTab('research')">Research</button>
-            <button class="tab-btn" onclick="switchTab('projects')">Projects</button>
-            <button class="tab-btn" onclick="switchTab('contributions')">Contributions</button>
-            <button class="tab-btn" onclick="switchTab('skills')">Skills</button>
+            <button class="tab-btn active" onclick="switchTab('overview', this)">Overview</button>
+            <button class="tab-btn" onclick="switchTab('research', this)">Research</button>
+            <button class="tab-btn" onclick="switchTab('projects', this)">Projects</button>
+            <button class="tab-btn" onclick="switchTab('contributions', this)">Contributions</button>
+            <button class="tab-btn" onclick="switchTab('skills', this)">Skills</button>
         </div>
 
         <!-- Overview Tab -->
@@ -698,6 +778,11 @@
 
                 <h3 style="margin-top: 1.5rem; margin-bottom: 0.75rem;">Co-Authors</h3>
                 <p style="font-size: 0.875rem; color: var(--text-light);">Abinaya S., Arikumar K. Selvaraj, Sahaya Beni Prathiba, Eshaan Rithesh Adyanthaya, Praveen Kumar Donta, Thippa Reddy Gadekallu</p>
+
+                <div class="project-actions" style="margin-top: 1.5rem;">
+                    <a href="https://doi.org/10.1016/j.measurement.2025.120197" class="project-action primary" target="_blank">Read Paper</a>
+                    <a href="https://github.com/Sarathchandra-Janapati/GOA-crack-detection" class="project-action" target="_blank">View Implementation</a>
+                </div>
             </div>
         </div>
 
@@ -708,6 +793,7 @@
             <div class="featured-project-grid">
                 <div class="project-card featured">
                     <h4>GOA-crack-detection</h4>
+                    <div class="project-preview">GOA-UNet Crack Segmentation</div>
                     <p class="project-desc">Implemented the research-backed GOA-UNet crack detection workflow for civil infrastructure image segmentation and measurement.</p>
                     <div class="project-tags">
                         <span>Python</span>
@@ -716,13 +802,18 @@
                         <span>Research</span>
                     </div>
                     <div class="project-meta">
-                        <span>Crack detection</span>
-                        <a href="https://github.com/Sarathchandra-Janapati/GOA-crack-detection" class="project-link" target="_blank">View →</a>
+                        <span>Jupyter Notebook</span>
+                        <span>Updated 2026</span>
+                    </div>
+                    <div class="project-actions">
+                        <a href="https://github.com/Sarathchandra-Janapati/GOA-crack-detection" class="project-action primary" target="_blank">Code</a>
+                        <a href="https://doi.org/10.1016/j.measurement.2025.120197" class="project-action" target="_blank">Paper</a>
                     </div>
                 </div>
 
                 <div class="project-card featured">
                     <h4>commitcraft</h4>
+                    <div class="project-preview">Git Diff → AI Commit Message</div>
                     <p class="project-desc">Built a local AI CLI that analyzes staged Git changes and generates Conventional Commit messages without API keys.</p>
                     <div class="project-tags">
                         <span>Python</span>
@@ -731,13 +822,17 @@
                         <span>Git</span>
                     </div>
                     <div class="project-meta">
-                        <span>Developer tooling</span>
-                        <a href="https://github.com/Sarathchandra-Janapati/commitcraft" class="project-link" target="_blank">View →</a>
+                        <span>Python</span>
+                        <span>Updated 2026</span>
+                    </div>
+                    <div class="project-actions">
+                        <a href="https://github.com/Sarathchandra-Janapati/commitcraft" class="project-action primary" target="_blank">Code</a>
                     </div>
                 </div>
 
                 <div class="project-card featured">
                     <h4>Voxa-Chatbot</h4>
+                    <div class="project-preview">Voice Input → LLaMA Response</div>
                     <p class="project-desc">Created a voice-enabled AI chatbot with speech output and Groq LLaMA integration for conversational assistant workflows.</p>
                     <div class="project-tags">
                         <span>JavaScript</span>
@@ -746,13 +841,17 @@
                         <span>Voice AI</span>
                     </div>
                     <div class="project-meta">
-                        <span>AI assistant</span>
-                        <a href="https://github.com/Sarathchandra-Janapati/Voxa-Chatbot" class="project-link" target="_blank">View →</a>
+                        <span>JavaScript</span>
+                        <span>Voice AI</span>
+                    </div>
+                    <div class="project-actions">
+                        <a href="https://github.com/Sarathchandra-Janapati/Voxa-Chatbot" class="project-action primary" target="_blank">Code</a>
                     </div>
                 </div>
 
                 <div class="project-card featured">
                     <h4>smartdata-ai</h4>
+                    <div class="project-preview">Structured Data + AI Workflows</div>
                     <p class="project-desc">Developed an AI-focused data processing project for experimenting with structured workflows and machine learning utilities.</p>
                     <div class="project-tags">
                         <span>Python</span>
@@ -761,8 +860,11 @@
                         <span>Automation</span>
                     </div>
                     <div class="project-meta">
-                        <span>Data workflows</span>
-                        <a href="https://github.com/Sarathchandra-Janapati/smartdata-ai" class="project-link" target="_blank">View →</a>
+                        <span>Python</span>
+                        <span>Updated 2026</span>
+                    </div>
+                    <div class="project-actions">
+                        <a href="https://github.com/Sarathchandra-Janapati/smartdata-ai" class="project-action primary" target="_blank">Code</a>
                     </div>
                 </div>
             </div>
@@ -922,11 +1024,16 @@
         <div class="container">
             <p>© 2026 Sarath Chandra. Published researcher & open source contributor.</p>
             <p style="margin-top: 0.5rem; font-size: 0.8rem;">📚 Published in Elsevier's Measurement Journal | 🌟 Contributor to psf/black | 🚀 13 GitHub projects</p>
+            <div class="footer-links">
+                <a href="sarath.pdf" target="_blank">Resume</a>
+                <a href="https://www.linkedin.com/in/sarathchandra-j/" target="_blank">Contact on LinkedIn</a>
+                <a href="https://github.com/Sarathchandra-Janapati" target="_blank">GitHub</a>
+            </div>
         </div>
     </footer>
 
     <script>
-        function switchTab(tabName) {
+        function switchTab(tabName, button) {
             document.querySelectorAll('.tab-content').forEach(el => {
                 el.classList.remove('active');
             });
@@ -936,7 +1043,7 @@
             });
             
             document.getElementById(tabName).classList.add('active');
-            event.target.classList.add('active');
+            button.classList.add('active');
         }
     </script>
 </body>
