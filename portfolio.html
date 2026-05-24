@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarath Chandra - Python Developer & Researcher</title>
+    <meta name="description" content="Portfolio of Sarath Chandra, published researcher and Python developer passionate about AI/ML and open source.">
+    <meta name="theme-color" content="#2563eb">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --bg: #f8fafc;
+            --bg-dark: #0f172a;
+            --card: #ffffff;
+            --card-dark: #0f172a;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --border-dark: #1e293b;
+            --success: #16a34a;
+            --warning: #ea580c;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0f172a;
+                --card: #0f172a;
+                --text: #f1f5f9;
+                --text-light: #cbd5e1;
+                --border: #1e293b;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 56rem;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border);
+            background: var(--card);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            padding: 1rem 0;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1.5rem;
+        }
+
+        .header-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            background: #2563eb;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .header-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            background: var(--border);
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .header-link:hover {
+            background: var(--border-dark);
+        }
+
+        .hero {
+            margin: 3rem 0;
+        }
+
+        .hero-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 2rem 3rem;
+        }
+
+        h2 {
+            font-size: 2.25rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1e40af;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        .btn-secondary:hover {
+            background: var(--border);
+        }
+
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            border-bottom: 1px solid var(--border);
+            margin: 2rem 0;
+            overflow-x: auto;
+        }
+
+        .tab-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            background: transparent;
+            color: var(--text-light);
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .tab-btn.active {
+            color: #2563eb;
+            border-bottom-color: #2563eb;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card:hover {
+            border-color: #2563eb;
+            transition: border-color 0.2s;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: start;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(37, 99, 235, 0.1);
+            color: #2563eb;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge-success {
+            background: rgba(22, 163, 74, 0.1);
+            color: #16a34a;
+        }
+
+        .badge-warning {
+            background: rgba(234, 88, 12, 0.1);
+            color: #ea580c;
+        }
+
+        .stat-card {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .stat-number {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #2563eb;
+            margin: 0.5rem 0;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        .tech-tag {
+            display: inline-block;
+            padding: 0.5rem 0.75rem;
+            background: rgba(37, 99, 235, 0.1);
+            color: #2563eb;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .highlight-list li {
+            padding: 0.25rem 0;
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        .highlight-list li:before {
+            content: "✓ ";
+            color: #16a34a;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .publication-meta {
+            background: var(--border);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            font-size: 0.875rem;
+            margin: 1rem 0;
+            line-height: 1.8;
+        }
+
+        .publication-meta strong {
+            color: var(--text);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .project-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            border-color: #2563eb;
+            transition: border-color 0.2s;
+        }
+
+        .project-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .project-desc {
+            color: var(--text-light);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+
+        .project-link {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        .closed-by {
+            background: var(--border);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            font-size: 0.875rem;
+        }
+
+        .closed-by strong {
+            color: var(--text);
+        }
+
+        a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 0.75rem;
+        }
+
+        .skill-item {
+            padding: 0.75rem;
+            background: var(--border);
+            border-radius: 0.5rem;
+            text-align: center;
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            background: var(--card);
+            margin-top: 3rem;
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 1.875rem;
+            }
+
+            .hero-card {
+                padding: 1.5rem;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                justify-content: center;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content container">
+            <div class="header-title">
+                <div class="logo">&lt;/&gt;</div>
+                <h1>Sarath Chandra</h1>
+            </div>
+            <a href="https://github.com/Sarathchandra-Janapati" class="header-link" target="_blank">
+                <span>📦</span> GitHub
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-card">
+                <h2>Python Developer & Published Researcher</h2>
+                <p class="subtitle">Building useful tools, contributing to open source, and advancing AI/ML applications in infrastructure monitoring. Published in Elsevier's Measurement journal.</p>
+                <div class="button-group">
+                    <a href="https://github.com/Sarathchandra-Janapati" class="btn btn-primary" target="_blank">
+                        <span>📦</span> View on GitHub
+                    </a>
+                    <a href="https://doi.org/10.1016/j.measurement.2025.120197" class="btn btn-secondary" target="_blank">
+                        <span>📄</span> Read Research Paper
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('overview')">Overview</button>
+            <button class="tab-btn" onclick="switchTab('research')">Research</button>
+            <button class="tab-btn" onclick="switchTab('projects')">Projects</button>
+            <button class="tab-btn" onclick="switchTab('contributions')">Contributions</button>
+            <button class="tab-btn" onclick="switchTab('skills')">Skills</button>
+        </div>
+
+        <!-- Overview Tab -->
+        <div id="overview" class="tab-content active">
+            <div class="card">
+                <h3>About</h3>
+                <p style="color: var(--text-light); margin-top: 0.5rem;">I'm a Python developer and published researcher focused on deep learning, infrastructure monitoring, and open source. My work spans from automated crack detection systems to AI-powered developer tools and chatbots.</p>
+            </div>
+
+            <div class="stats-container">
+                <div class="card stat-card">
+                    <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📚</div>
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">Published research paper (Elsevier)</div>
+                </div>
+                <div class="card stat-card">
+                    <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🎯</div>
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">Issue closed on psf/black (41k stars)</div>
+                </div>
+                <div class="card stat-card">
+                    <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🚀</div>
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">GitHub projects</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Research Tab -->
+        <div id="research" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <span class="badge badge-success">Published</span>
+                        <h3>Enhanced Crack Detection using GOA-UNet Segmentation</h3>
+                    </div>
+                    <a href="https://doi.org/10.1016/j.measurement.2025.120197" target="_blank" style="font-size: 1.25rem;">🔗</a>
+                </div>
+
+                <div class="publication-meta">
+                    <strong>Journal:</strong> Measurement (Elsevier)<br>
+                    <strong>Volume:</strong> 263 (2026)<br>
+                    <strong>DOI:</strong> <a href="https://doi.org/10.1016/j.measurement.2025.120197" target="_blank">10.1016/j.measurement.2025.120197</a><br>
+                    <strong>Published:</strong> December 24, 2025<br>
+                    <strong>My Role:</strong> Co-author (Writing, Visualization, Validation, Methodology)
+                </div>
+
+                <h3 style="margin-top: 1.5rem; margin-bottom: 0.75rem;">Abstract</h3>
+                <p style="color: var(--text-light); margin-bottom: 1rem;">This paper proposes a novel GOA-UNet model for automated crack detection in civil infrastructure. The approach integrates multiple state-of-the-art techniques to achieve robust detection and geometric measurement of structural cracks.</p>
+
+                <h3 style="margin-bottom: 0.75rem;">Key Components</h3>
+                <ul class="highlight-list">
+                    <li>Grasshopper Optimization Algorithm (GOA) for hyperparameter tuning</li>
+                    <li>GAN-based data augmentation for synthetic crack image generation</li>
+                    <li>Power Law Transformation for contrast enhancement</li>
+                    <li>Connected Component Analysis (CCA) for geometric measurements</li>
+                </ul>
+
+                <h3 style="margin-top: 1.5rem; margin-bottom: 0.75rem;">Results</h3>
+                <div class="publication-meta">
+                    <strong>Crack Detection Accuracy:</strong> 98.5%<br>
+                    <strong>F1-Score:</strong> 84.12%<br>
+                    <strong>IoU (Intersection over Union):</strong> 72.92%<br>
+                    <strong>Inference Speed:</strong> 22.2 FPS (Real-time capable)<br>
+                    <strong>Cross-Dataset Generalization:</strong> 95.27% performance retention
+                </div>
+
+                <h3 style="margin-top: 1.5rem; margin-bottom: 0.75rem;">Co-Authors</h3>
+                <p style="font-size: 0.875rem; color: var(--text-light);">Abinaya S., Arikumar K. Selvaraj, Sahaya Beni Prathiba, Eshaan Rithesh Adyanthaya, Praveen Kumar Donta, Thippa Reddy Gadekallu</p>
+            </div>
+        </div>
+
+        <!-- Projects Tab -->
+        <div id="projects" class="tab-content">
+            <h3 style="margin-bottom: 1rem;">Featured Projects</h3>
+            
+            <div class="project-grid">
+                <div class="project-card">
+                    <h4>commitcraft</h4>
+                    <p class="project-desc">AI-powered git commit message generator using Ollama. Free, local, no API key needed. Analyzes staged changes and generates meaningful conventional commit messages.</p>
+                    <div class="project-meta">
+                        <span>Python</span>
+                        <a href="https://github.com/Sarathchandra-Janapati/commitcraft" class="project-link" target="_blank">View →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h4>smartdata-ai</h4>
+                    <p class="project-desc">Smart data processing and AI integration project. Recent updates focus on advanced data handling and machine learning workflows.</p>
+                    <div class="project-meta">
+                        <span>Python</span>
+                        <a href="https://github.com/Sarathchandra-Janapati/smartdata-ai" class="project-link" target="_blank">View →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h4>Voxa-Chatbot</h4>
+                    <p class="project-desc">Voice-enabled AI chatbot powered by Groq's LLaMA 3.1 model and pyttsx3 text-to-speech. Holds intelligent conversations with spoken responses.</p>
+                    <div class="project-meta">
+                        <span>JavaScript</span>
+                        <a href="https://github.com/Sarathchandra-Janapati/Voxa-Chatbot" class="project-link" target="_blank">View →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h4>voice-whisper-wizard-chat</h4>
+                    <p class="project-desc">Advanced voice-based chat interface combining speech recognition and AI conversation. TypeScript implementation for modern web apps.</p>
+                    <div class="project-meta">
+                        <span>TypeScript</span>
+                        <a href="https://github.com/Sarathchandra-Janapati/voice-whisper-wizard-chat" class="project-link" target="_blank">View →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h4>Bitcoin-Price-Prediction</h4>
+                    <p class="project-desc">Data analytics project for predicting Bitcoin price movements using machine learning. Demonstrates essentials of data analytics and forecasting.</p>
+                    <div class="project-meta">
+                        <span>Python</span>
+                        <a href="https://github.com/Sarathchandra-Janapati/Bitcoin-Price-Prediction" class="project-link" target="_blank">View →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h4>yolov5</h4>
+                    <p class="project-desc">YOLOv5 object detection framework in PyTorch. Conversion to ONNX, CoreML, and TFLite formats for cross-platform deployment.</p>
+                    <div class="project-meta">
+                        <span>Python</span>
+                        <a href="https://github.com/Sarathchandra-Janapati/yolov5" class="project-link" target="_blank">View →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h4>AI-Project</h4>
+                    <p class="project-desc">General artificial intelligence project exploring various AI concepts and implementations.</p>
+                    <div class="project-meta">
+                        <span>Multi-language</span>
+                        <a href="https://github.com/Sarathchandra-Janapati/AI-Project" class="project-link" target="_blank">View →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h4>Jaideep-Portfolio</h4>
+                    <p class="project-desc">Portfolio website template built with JavaScript. Responsive design for showcasing projects and skills.</p>
+                    <div class="project-meta">
+                        <span>JavaScript</span>
+                        <a href="https://github.com/Sarathchandra-Janapati/Jaideep-Portfolio" class="project-link" target="_blank">View →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h4>My-oops-knowledge</h4>
+                    <p class="project-desc">Object-oriented programming (OOP) learning repository. Coding exercises and concepts in Java.</p>
+                    <div class="project-meta">
+                        <span>Java</span>
+                        <a href="https://github.com/Sarathchandra-Janapati/My-oops-knowledge" class="project-link" target="_blank">View →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h4>TwitterSentimentAnalysis</h4>
+                    <p class="project-desc">Sentiment analysis on Twitter data using machine learning. NLP project for understanding social media sentiment.</p>
+                    <div class="project-meta">
+                        <span>Jupyter Notebook</span>
+                        <a href="https://github.com/Sarathchandra-Janapati/TwitterSemtimentAnalysis" class="project-link" target="_blank">View →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h4>Razorpay</h4>
+                    <p class="project-desc">Payment integration project using Razorpay API. Python implementation for handling payments and transactions.</p>
+                    <div class="project-meta">
+                        <span>Python</span>
+                        <a href="https://github.com/Sarathchandra-Janapati/Razorpay" class="project-link" target="_blank">View →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h4>Profile Repository</h4>
+                    <p class="project-desc">GitHub profile README showcasing all work, research publications, and contributions to the open source community.</p>
+                    <div class="project-meta">
+                        <span>Markdown</span>
+                        <a href="https://github.com/Sarathchandra-Janapati/Sarathchandra-Janapati" class="project-link" target="_blank">View →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contributions Tab -->
+        <div id="contributions" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3>psf/black</h3>
+                        <p style="color: var(--text-light); font-size: 0.875rem; margin-top: 0.25rem;">⭐ 41k stars · Issue #5001</p>
+                    </div>
+                    <a href="https://github.com/psf/black/issues/5001#issuecomment-4514677697" target="_blank" style="font-size: 1.25rem;">🔗</a>
+                </div>
+                <p style="color: var(--text-light); margin-bottom: 1.5rem;">Verified and helped close bug — confirmed fix for non-deterministic <code>@overload</code> formatting on Black 26.5.1 / Python 3.13.9</p>
+                
+                <div class="closed-by">
+                    <strong>Closed by:</strong> <a href="https://github.com/JelleZijlstra" target="_blank">JelleZijlstra</a><br>
+                    <span style="font-size: 0.8rem; color: var(--text-light);">Black core maintainer & CPython core developer</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills Tab -->
+        <div id="skills" class="tab-content">
+            <div class="card">
+                <h3>Languages</h3>
+                <div class="skill-grid">
+                    <div class="skill-item">Python</div>
+                    <div class="skill-item">JavaScript</div>
+                    <div class="skill-item">TypeScript</div>
+                    <div class="skill-item">Java</div>
+                    <div class="skill-item">Bash</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Deep Learning & AI</h3>
+                <div class="skill-grid">
+                    <div class="skill-item">TensorFlow</div>
+                    <div class="skill-item">PyTorch</div>
+                    <div class="skill-item">U-Net</div>
+                    <div class="skill-item">GANs</div>
+                    <div class="skill-item">Computer Vision</div>
+                    <div class="skill-item">NLP</div>
+                    <div class="skill-item">YOLO</div>
+                    <div class="skill-item">Groq/LLaMA</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Tools & Frameworks</h3>
+                <div class="skill-grid">
+                    <div class="skill-item">Git</div>
+                    <div class="skill-item">CLI Tools</div>
+                    <div class="skill-item">Ollama</div>
+                    <div class="skill-item">Click</div>
+                    <div class="skill-item">Rich</div>
+                    <div class="skill-item">Jupyter</div>
+                    <div class="skill-item">Pandas</div>
+                    <div class="skill-item">Scikit-learn</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Specializations</h3>
+                <div class="skill-grid">
+                    <div class="skill-item">Deep Learning</div>
+                    <div class="skill-item">Computer Vision</div>
+                    <div class="skill-item">Infrastructure Monitoring</div>
+                    <div class="skill-item">Voice AI</div>
+                    <div class="skill-item">Data Analytics</div>
+                    <div class="skill-item">Open Source</div>
+                    <div class="skill-item">Dev Tools</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Sarath Chandra. Published researcher & open source contributor.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem;">📚 Published in Elsevier's Measurement Journal | 🌟 Contributor to psf/black | 🚀 12 GitHub projects</p>
+        </div>
+    </footer>
+
+    <script>
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
