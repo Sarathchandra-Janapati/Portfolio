@@ -335,6 +335,13 @@
             margin-bottom: 2rem;
         }
 
+        .featured-project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
         .project-card {
             background: var(--card);
             border: 1px solid var(--border);
@@ -342,6 +349,10 @@
             padding: 1.5rem;
             display: flex;
             flex-direction: column;
+        }
+
+        .project-card.featured {
+            border-top: 4px solid #2563eb;
         }
 
         .project-card:hover {
@@ -368,6 +379,48 @@
             align-items: center;
             font-size: 0.75rem;
             color: var(--text-light);
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-tags span {
+            padding: 0.25rem 0.6rem;
+            background: rgba(37, 99, 235, 0.1);
+            color: #2563eb;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .more-projects {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .more-project-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+        }
+
+        .more-project-item h4 {
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .more-project-item p {
+            color: var(--text-light);
+            font-size: 0.8rem;
         }
 
         .project-link {
@@ -462,6 +515,11 @@
 
             .project-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .more-project-item {
+                align-items: flex-start;
+                flex-direction: column;
             }
         }
     </style>
@@ -590,114 +648,126 @@
         <!-- Projects Tab -->
         <div id="projects" class="tab-content">
             <h3 style="margin-bottom: 1rem;">Featured Projects</h3>
-            
-            <div class="project-grid">
-                <div class="project-card">
+
+            <div class="featured-project-grid">
+                <div class="project-card featured">
                     <h4>commitcraft</h4>
-                    <p class="project-desc">AI-powered git commit message generator using Ollama. Free, local, no API key needed. Analyzes staged changes and generates meaningful conventional commit messages.</p>
-                    <div class="project-meta">
+                    <p class="project-desc">Built a local AI CLI that analyzes staged Git changes and generates Conventional Commit messages without API keys.</p>
+                    <div class="project-tags">
                         <span>Python</span>
+                        <span>Ollama</span>
+                        <span>CLI</span>
+                        <span>Git</span>
+                    </div>
+                    <div class="project-meta">
+                        <span>Developer tooling</span>
                         <a href="https://github.com/Sarathchandra-Janapati/commitcraft" class="project-link" target="_blank">View →</a>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <h4>smartdata-ai</h4>
-                    <p class="project-desc">Smart data processing and AI integration project. Recent updates focus on advanced data handling and machine learning workflows.</p>
-                    <div class="project-meta">
-                        <span>Python</span>
-                        <a href="https://github.com/Sarathchandra-Janapati/smartdata-ai" class="project-link" target="_blank">View →</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
+                <div class="project-card featured">
                     <h4>Voxa-Chatbot</h4>
-                    <p class="project-desc">Voice-enabled AI chatbot powered by Groq's LLaMA 3.1 model and pyttsx3 text-to-speech. Holds intelligent conversations with spoken responses.</p>
-                    <div class="project-meta">
+                    <p class="project-desc">Created a voice-enabled AI chatbot with speech output and Groq LLaMA integration for conversational assistant workflows.</p>
+                    <div class="project-tags">
                         <span>JavaScript</span>
+                        <span>Groq</span>
+                        <span>LLaMA</span>
+                        <span>Voice AI</span>
+                    </div>
+                    <div class="project-meta">
+                        <span>AI assistant</span>
                         <a href="https://github.com/Sarathchandra-Janapati/Voxa-Chatbot" class="project-link" target="_blank">View →</a>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <h4>voice-whisper-wizard-chat</h4>
-                    <p class="project-desc">Advanced voice-based chat interface combining speech recognition and AI conversation. TypeScript implementation for modern web apps.</p>
-                    <div class="project-meta">
-                        <span>TypeScript</span>
-                        <a href="https://github.com/Sarathchandra-Janapati/voice-whisper-wizard-chat" class="project-link" target="_blank">View →</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <h4>Bitcoin-Price-Prediction</h4>
-                    <p class="project-desc">Data analytics project for predicting Bitcoin price movements using machine learning. Demonstrates essentials of data analytics and forecasting.</p>
-                    <div class="project-meta">
+                <div class="project-card featured">
+                    <h4>smartdata-ai</h4>
+                    <p class="project-desc">Developed an AI-focused data processing project for experimenting with structured workflows and machine learning utilities.</p>
+                    <div class="project-tags">
                         <span>Python</span>
-                        <a href="https://github.com/Sarathchandra-Janapati/Bitcoin-Price-Prediction" class="project-link" target="_blank">View →</a>
+                        <span>Data</span>
+                        <span>AI</span>
+                        <span>Automation</span>
+                    </div>
+                    <div class="project-meta">
+                        <span>Data workflows</span>
+                        <a href="https://github.com/Sarathchandra-Janapati/smartdata-ai" class="project-link" target="_blank">View →</a>
                     </div>
                 </div>
+            </div>
 
-                <div class="project-card">
-                    <h4>yolov5</h4>
-                    <p class="project-desc">YOLOv5 object detection framework in PyTorch. Conversion to ONNX, CoreML, and TFLite formats for cross-platform deployment.</p>
-                    <div class="project-meta">
-                        <span>Python</span>
-                        <a href="https://github.com/Sarathchandra-Janapati/yolov5" class="project-link" target="_blank">View →</a>
+            <h3 style="margin: 1.5rem 0 1rem;">More Projects</h3>
+            <div class="more-projects">
+                <div class="more-project-item">
+                    <div>
+                        <h4>voice-whisper-wizard-chat</h4>
+                        <p>Voice chat interface combining speech recognition and AI conversation.</p>
                     </div>
+                    <a href="https://github.com/Sarathchandra-Janapati/voice-whisper-wizard-chat" class="project-link" target="_blank">View →</a>
                 </div>
 
-                <div class="project-card">
-                    <h4>AI-Project</h4>
-                    <p class="project-desc">General artificial intelligence project exploring various AI concepts and implementations.</p>
-                    <div class="project-meta">
-                        <span>Multi-language</span>
-                        <a href="https://github.com/Sarathchandra-Janapati/AI-Project" class="project-link" target="_blank">View →</a>
+                <div class="more-project-item">
+                    <div>
+                        <h4>Bitcoin-Price-Prediction</h4>
+                        <p>Machine learning and analytics project for financial price forecasting.</p>
                     </div>
+                    <a href="https://github.com/Sarathchandra-Janapati/Bitcoin-Price-Prediction" class="project-link" target="_blank">View →</a>
                 </div>
 
-                <div class="project-card">
-                    <h4>Jaideep-Portfolio</h4>
-                    <p class="project-desc">Portfolio website template built with JavaScript. Responsive design for showcasing projects and skills.</p>
-                    <div class="project-meta">
-                        <span>JavaScript</span>
-                        <a href="https://github.com/Sarathchandra-Janapati/Jaideep-Portfolio" class="project-link" target="_blank">View →</a>
+                <div class="more-project-item">
+                    <div>
+                        <h4>yolov5</h4>
+                        <p>Computer vision object detection work based on the YOLOv5 ecosystem.</p>
                     </div>
+                    <a href="https://github.com/Sarathchandra-Janapati/yolov5" class="project-link" target="_blank">View →</a>
                 </div>
 
-                <div class="project-card">
-                    <h4>My-oops-knowledge</h4>
-                    <p class="project-desc">Object-oriented programming (OOP) learning repository. Coding exercises and concepts in Java.</p>
-                    <div class="project-meta">
-                        <span>Java</span>
-                        <a href="https://github.com/Sarathchandra-Janapati/My-oops-knowledge" class="project-link" target="_blank">View →</a>
+                <div class="more-project-item">
+                    <div>
+                        <h4>TwitterSentimentAnalysis</h4>
+                        <p>NLP sentiment analysis project using notebook-based data exploration.</p>
                     </div>
+                    <a href="https://github.com/Sarathchandra-Janapati/TwitterSemtimentAnalysis" class="project-link" target="_blank">View →</a>
                 </div>
 
-                <div class="project-card">
-                    <h4>TwitterSentimentAnalysis</h4>
-                    <p class="project-desc">Sentiment analysis on Twitter data using machine learning. NLP project for understanding social media sentiment.</p>
-                    <div class="project-meta">
-                        <span>Jupyter Notebook</span>
-                        <a href="https://github.com/Sarathchandra-Janapati/TwitterSemtimentAnalysis" class="project-link" target="_blank">View →</a>
+                <div class="more-project-item">
+                    <div>
+                        <h4>Razorpay</h4>
+                        <p>Python payment integration experiment using the Razorpay API.</p>
                     </div>
+                    <a href="https://github.com/Sarathchandra-Janapati/Razorpay" class="project-link" target="_blank">View →</a>
                 </div>
 
-                <div class="project-card">
-                    <h4>Razorpay</h4>
-                    <p class="project-desc">Payment integration project using Razorpay API. Python implementation for handling payments and transactions.</p>
-                    <div class="project-meta">
-                        <span>Python</span>
-                        <a href="https://github.com/Sarathchandra-Janapati/Razorpay" class="project-link" target="_blank">View →</a>
+                <div class="more-project-item">
+                    <div>
+                        <h4>AI-Project</h4>
+                        <p>Collection of artificial intelligence practice implementations.</p>
                     </div>
+                    <a href="https://github.com/Sarathchandra-Janapati/AI-Project" class="project-link" target="_blank">View →</a>
                 </div>
 
-                <div class="project-card">
-                    <h4>Profile Repository</h4>
-                    <p class="project-desc">GitHub profile README showcasing all work, research publications, and contributions to the open source community.</p>
-                    <div class="project-meta">
-                        <span>Markdown</span>
-                        <a href="https://github.com/Sarathchandra-Janapati/Sarathchandra-Janapati" class="project-link" target="_blank">View →</a>
+                <div class="more-project-item">
+                    <div>
+                        <h4>Jaideep-Portfolio</h4>
+                        <p>Responsive JavaScript portfolio template for showcasing projects.</p>
                     </div>
+                    <a href="https://github.com/Sarathchandra-Janapati/Jaideep-Portfolio" class="project-link" target="_blank">View →</a>
+                </div>
+
+                <div class="more-project-item">
+                    <div>
+                        <h4>My-oops-knowledge</h4>
+                        <p>Java OOP learning repository with concepts and coding exercises.</p>
+                    </div>
+                    <a href="https://github.com/Sarathchandra-Janapati/My-oops-knowledge" class="project-link" target="_blank">View →</a>
+                </div>
+
+                <div class="more-project-item">
+                    <div>
+                        <h4>Profile Repository</h4>
+                        <p>GitHub profile README with research, projects, and contribution highlights.</p>
+                    </div>
+                    <a href="https://github.com/Sarathchandra-Janapati/Sarathchandra-Janapati" class="project-link" target="_blank">View →</a>
                 </div>
             </div>
         </div>
