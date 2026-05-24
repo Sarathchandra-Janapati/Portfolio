@@ -113,6 +113,14 @@
             background: var(--border-dark);
         }
 
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
         .hero {
             margin: 3rem 0;
         }
@@ -441,6 +449,17 @@
                 justify-content: center;
             }
 
+            .header-content {
+                align-items: flex-start;
+                gap: 1rem;
+                flex-direction: column;
+            }
+
+            .header-actions {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
             .project-grid {
                 grid-template-columns: 1fr;
             }
@@ -454,9 +473,14 @@
                 <div class="logo">&lt;/&gt;</div>
                 <h1>Sarath Chandra</h1>
             </div>
-            <a href="https://github.com/Sarathchandra-Janapati" class="header-link" target="_blank">
-                <span>📦</span> GitHub
-            </a>
+            <div class="header-actions">
+                <a href="sarath.pdf" class="header-link" target="_blank">
+                    <span>📄</span> Resume
+                </a>
+                <a href="https://github.com/Sarathchandra-Janapati" class="header-link" target="_blank">
+                    <span>📦</span> GitHub
+                </a>
+            </div>
         </div>
     </header>
 
